@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1629213751 source:d:\onedrive - e-uvt.ro\informatica\programing\cpp_basics_recap\advancedcpp\exception_handling\main.cpp
+	<iostream>
+	<exception>
+

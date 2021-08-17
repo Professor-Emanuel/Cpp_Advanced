@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1629209728 source:d:\onedrive - e-uvt.ro\informatica\programing\cpp_basics_recap\advancedcpp\files_and_streams\main.cpp
+	<iostream>
+	<fstream>
+
