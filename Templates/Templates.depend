@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1629731652 source:d:\onedrive - e-uvt.ro\informatica\programing\cpp_basics_recap\advancedcpp\templates\main.cpp
+	<iostream>
+	<vector>
+	<cstdlib>
+	<string>
+	<stdexcept>
+
