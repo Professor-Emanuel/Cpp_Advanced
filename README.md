@@ -24,12 +24,12 @@ Data Type & Description
     1	ofstream - This data type represents the output file stream and is used to create files and to write information to files.
 
 
-    2 ifstream - This data type represents the input file stream and is used to read information from files.
+    2   ifstream - This data type represents the input file stream and is used to read information from files.
 
     3	fstream - This data type represents the file stream generally, and has the capabilities of both ofstream and ifstream 
     which means it can create files, write information to files, and read information from files.
-
-
+    
+    
 To perform file processing in C++, header files <iostream> and <fstream> must be included in your C++ source file.
 
   
@@ -313,14 +313,208 @@ Dynamic Memory Allocation for Objects - Objects are no different from simple dat
   
 
   
+#C++ Namespaces
+    
   
   
+Consider a situation, when we have two persons with the same name, Zara, in the same class. Whenever we need to differentiate them definitely we would have to use some additional information along with their name, like either the area, if they live in different area or their mother’s or father’s name, etc.
+
+    
+Same situation can arise in your C++ applications. For example, you might be writing some code that has a function called xyz() and there is another library available which is also having same function xyz(). Now the compiler has no way of knowing which version of xyz() function you are referring to within your code.
+
+    
+A namespace is designed to overcome this difficulty and is used as additional information to differentiate similar functions, classes, variables etc. with the same name available in different libraries. Using namespace, you can define the context in which names are defined. In essence, a namespace defines a scope.
+
+    
+Defining a Namespace - A namespace definition begins with the keyword namespace followed by the namespace name as follows −
+
+    
+            namespace namespace_name {
+               // code declarations
+            }
+
+    
+To call the namespace-enabled version of either function or variable, prepend (::) the namespace name as follows −
+
+
+            name::code;  // code could be variable or function.  
+  
+    
+The using directive
+    
+    
+You can also avoid prepending of namespaces with the using namespace directive. This directive tells the compiler that the subsequent code is making use of names in the specified namespace. The namespace is thus implied for the following code   
+    
+Example:
+    
+            using namespace std;
+            cout<<"Text";
+    
+    
+    Instead of
+    
+            
+            std::cout<<"Text";
   
   
-  
-  
-  
-  
-  
-  
-  
+The ‘using’ directive can also be used to refer to a particular item within a namespace. For example, if the only part of the std namespace that you intend to use is cout, you can refer to it as follows −
+
+    
+            using std::cout;
+    
+
+Names introduced in a using directive obey normal scope rules. The name is visible from the point of the using directive to the end of the scope in which the directive is found. Entities with the same name defined in an outer scope are hidden.
+
+    
+Discontiguous Namespaces - A namespace can be defined in several parts and so a namespace is made up of the sum of its separately defined parts. The separate parts of a namespace can be spread over multiple files.
+    
+
+So, if one part of the namespace requires a name defined in another file, that name must still be declared. Writing a following namespace definition either defines a new namespace or adds new elements to an existing one −
+
+
+            namespace namespace_name {
+               // code declarations
+            }
+    
+    
+Nested Namespaces - Namespaces can be nested where you can define one namespace inside another name space as follows −
+
+    
+            namespace namespace_name1 {
+               // code declarations
+               namespace namespace_name2 {
+                  // code declarations
+               }
+            }
+    
+    
+You can access members of nested namespace by using resolution operators as follows −
+
+    
+            // to access members of namespace_name2
+            using namespace namespace_name1::namespace_name2;
+
+
+            // to access members of namespace:name1
+            using namespace namespace_name1;
+    
+    
+In the above statements if you are using namespace_name1, then it will make elements of namespace_name2 available in the scope
+    
+    
+    
+#C++ Templates
+    
+    
+    
+Templates are the foundation of generic programming, which involves writing code in a way that is independent of any particular type.
+
+    
+A template is a blueprint or formula for creating a generic class or a function. The library containers like iterators and algorithms are examples of generic programming and have been developed using template concept.
+
+    
+There is a single definition of each container, such as vector, but we can define many different kinds of vectors for example, vector <int> or vector <string>.
+
+    
+You can use templates to define functions as well as classes, let us see how they work −
+
+    
+Function Template - The general form of a template function definition is shown here −
+
+
+            template <class type> ret-type func-name(parameter list) {
+               // body of function
+            } 
+    
+    
+Here, type is a placeholder name for a data type used by the function. This name can be used within the function definition.
+    
+    
+Class Template - Just as we can define function templates, we can also define class templates. The general form of a generic class declaration is shown here −
+
+    
+            template <class type> class class-name {
+               .
+               .
+               .
+            }
+    
+    
+Here, type is the placeholder type name, which will be specified when a class is instantiated. You can define more than one generic data type by using a comma-separated list.    
+    
+    
+More on templates: https://docs.microsoft.com/en-us/cpp/cpp/templates-cpp?view=msvc-160
+    
+    
+ 
+#C++ Preprocessor
+    
+    
+    
+The preprocessors are the directives, which give instructions to the compiler to preprocess the information before actual compilation starts.
+
+    
+All preprocessor directives begin with #, and only white-space characters may appear before a preprocessor directive on a line. Preprocessor directives are not C++ statements, so they do not end in a semicolon (;).
+
+    
+You already have seen a #include directive in all the examples. This macro is used to include a header file into the source file.
+
+    
+There are number of preprocessor directives supported by C++ like #include, #define, #if, #else, #line, etc.
+
+    
+The #define Preprocessor - The #define preprocessor directive creates symbolic constants. The symbolic constant is called a macro and the general form of the directive is −
+
+    
+            #define macro-name replacement-text 
+    
+    
+When this line appears in a file, all subsequent occurrences of macro in that file will be replaced by replacement-text before the program is compiled.
+    
+    
+Function-Like Macros - You can use #define to define a macro which will take arguments.    
+    
+    
+Conditional Compilation
+    
+    
+There are several directives, which can be used to compile selective portions of your program's source code. This process is called conditional compilation.
+
+    
+The conditional preprocessor construct is much like the ‘if’ selection structure. Consider the following preprocessor code −
+
+    
+            #ifndef NULL
+               #define NULL 0
+            #endif
+    
+    
+You can compile a program for debugging purpose. You can also turn on or off the debugging using a single macro as follows −
+
+    
+            #ifdef DEBUG
+               cerr <<"Variable x = " << x << endl;
+            #endif
+    
+    
+This causes the cerr statement to be compiled in the program if the symbolic constant DEBUG has been defined before directive #ifdef DEBUG. You can use #if 0 statment to comment out a portion of the program as follows −
+
+    
+            #if 0
+               code prevented from compiling
+            #endif   
+    
+    
+The # and ## Operators - The # and ## preprocessor operators are available in C++ and ANSI/ISO C. The # operator causes a replacement-text token to be converted to a string surrounded by quotes.    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
