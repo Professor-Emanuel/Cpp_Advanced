@@ -445,8 +445,57 @@ Here, type is the placeholder type name, which will be specified when a class is
     
 More on templates: https://docs.microsoft.com/en-us/cpp/cpp/templates-cpp?view=msvc-160
     
+
+A template is a simple and yet very powerful tool in C++. The simple idea is to pass data type as a parameter so that we don’t need to write the same code for different data types. For example, a software company may need sort() for different data types. Rather than writing and maintaining the multiple codes, we can write one sort() and pass data type as a parameter. 
     
- 
+    
+C++ adds two new keywords to support templates: ‘template’ and ‘typename’. The second keyword can always be replaced by keyword ‘class’.
+    
+    
+How do templates work? 
+
+    
+Templates are expanded at compiler time. This is like macros. The difference is, the compiler does type checking before template expansion. The idea is simple, source code contains only function/class, but compiled code may contain multiple copies of same function/class.     
+
+    
+More on generics in C++:  https://www.geeksforgeeks.org/generics-in-c/
+    
+    
+Class Templates Like function templates, class templates are useful when a class defines something that is independent of the data type. Can be useful for classes like LinkedList, BinaryTree, Stack, Queue, Array, etc. 
+    
+
+There is no semantic difference between class and typename in a template-parameter. typename however is possible in another context when using templates - to hint at the compiler that you are referring to a dependent type. ... Without typename the compiler can't tell in general whether you are referring to a type or not.
+    
+    
+Read more at:    https://newbedev.com/difference-of-keywords-typename-and-class-in-templates
+    
+    
+What is the difference between function overloading and templates? 
+    
+    
+Both function overloading and templates are examples of polymorphism feature of OOP. Function overloading is used when multiple functions do similar operations, templates are used when multiple functions do identical operations.
+    
+    
+What happens when there is a static member in a template class/function? 
+    
+    
+Each instance of a template contains its own static variable. See Templates and Static variables for more details:    https://www.geeksforgeeks.org/templates-and-static-variables-in-c/
+    
+    
+What is template specialization? 
+    
+    
+Template specialization allows us to have different code for a particular data type. See Template Specialization for more details:    https://www.geeksforgeeks.org/template-specialization-c/
+    
+    
+Can we pass nontype parameters to templates? 
+    
+    
+We can pass non-type arguments to templates. Non-type parameters are mainly used for specifying max or min values or any other constant value for a particular instance of a template. The important thing to note about non-type parameters is, they must be const. The compiler must know the value of non-type parameters at compile time. Because the compiler needs to create functions/classes for a specified non-type value at compile time. 
+    
+    
+    
+    
 #C++ Preprocessor
     
     
