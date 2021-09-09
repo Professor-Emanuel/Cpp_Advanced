@@ -494,7 +494,16 @@ Can we pass nontype parameters to templates?
 We can pass non-type arguments to templates. Non-type parameters are mainly used for specifying max or min values or any other constant value for a particular instance of a template. The important thing to note about non-type parameters is, they must be const. The compiler must know the value of non-type parameters at compile time. Because the compiler needs to create functions/classes for a specified non-type value at compile time. 
     
     
+More on templates:    https://en.cppreference.com/w/cpp/language/templates
     
+    
+https://www.mygreatlearning.com/blog/templates-in-cpp/
+    
+    
+https://www.programiz.com/cpp-programming/templates
+    
+    
+
     
 #C++ Preprocessor
     
