@@ -28,6 +28,7 @@ int main()
     std::string ab = "Ana is blind!";
     std::cout << CONCAT(x, y) << std::endl; // std::cout << xy <<std::endl;
     std::cout << CONCAT(a, b) <<std::endl; // std::cout << ab <<std::endl;
+    std::CONCAT(c, out) << "COOL!" <<std::endl; // std::cout << "COOL!" <<std::endl;
 
     // Example 3
     std::cout << "Value of __LINE__ : " << __LINE__ << std::endl;
