@@ -501,9 +501,7 @@ https://www.mygreatlearning.com/blog/templates-in-cpp/
     
     
 https://www.programiz.com/cpp-programming/templates
-    
-    
-
+  
     
     
 #C++ Preprocessor
@@ -567,13 +565,94 @@ This causes the cerr statement to be compiled in the program if the symbolic con
 The # and ## Operators - The # and ## preprocessor operators are available in C++ and ANSI/ISO C. The # operator causes a replacement-text token to be converted to a string surrounded by quotes.    
     
     
+Predefined C++ Macros - C++ provides a number of predefined macros mentioned below −
+    
+
+__LINE__        This contains the current line number of the program when it is compiled.
+
+
+__FILE__        This contains the current file name of the program when it is compiled.
+
+	
+__DATE__        This contains a string of the form month/day/year that is the date of the translation of the source file into object code.
+
+	
+__TIME__        This contains a string of the form hour:minute:second that is the time at which the program was compiled.    
+    
+    
+Defined macros are not affected by block structure. A macro lasts until it is undefined with the #undef preprocessor directive:
+
+
+                #define TABLE_SIZE 100
+    
+                int table1[TABLE_SIZE];
+    
+                #undef TABLE_SIZE
+    
+                #define TABLE_SIZE 200
+    
+                int table2[TABLE_SIZE];
     
     
     
+C++ Signal Handling
     
     
     
+Signals are the interrupts delivered to a process by the operating system which can terminate a program prematurely. You can generate interrupts by pressing Ctrl+C on a UNIX, LINUX, Mac OS X or Windows system.
+
+    
+There are signals which can not be caught by the program but there is a list of signals which you can catch in your program and can take appropriate actions based on the signal. These signals are defined in C++ header file <csignal>.
+    
+    
+SIGABRT - Abnormal termination of the program, such as a call to abort.
+
+
+SIGFPE - An erroneous arithmetic operation, such as a divide by zero or an operation resulting in overflow.
+
+
+SIGILL - Detection of an illegal instruction.
+
+
+SIGINT - Receipt of an interactive attention signal.
+
+
+SIGSEGV - An invalid access to storage.
+
+
+SIGTERM - A termination request sent to the program.    
+    
+    
+The signal() Function - C++ signal-handling library provides the function signal to trap unexpected events. Following is the syntax of the signal() function −
+
+    
+            void (*signal (int sig, void (*func)(int)))(int); 
+    
+    
+Keeping it simple, this function receives two arguments: first argument as an integer which represents signal number and second argument as a pointer to the signal-handling function.
+
+    
+Whatever signal you want to catch in your program, you must register that signal using signal function and associate it with a signal handler.
+    
+    
+The raise() Function - You can generate signals by function raise(), which takes an integer signal number as an argument and has the following syntax.
+
+    
+                int raise (signal sig);
+    
+    
+Here, sig is the signal number to send any of the signals: SIGINT, SIGABRT, SIGFPE, SIGILL, SIGSEGV, SIGTERM, SIGHUP.
+
+    
+More on signal handling:    https://en.cppreference.com/w/cpp/utility/program/signal
+    
+                            https://en.cppreference.com/w/cpp/utility/program/raise
+    
+    
+            
+C++ Multithreading    
     
     
     
+w    
     
