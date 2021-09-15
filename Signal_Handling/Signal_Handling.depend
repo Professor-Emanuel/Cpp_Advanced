@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1631715397 source:d:\onedrive - e-uvt.ro\informatica\programing\cpp_basics_recap\advancedcpp\signal_handling\main.cpp
+	<iostream>
+	<csignal>
+	<unistd.h>
+
