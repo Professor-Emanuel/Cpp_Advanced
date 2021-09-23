@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1632400340 source:d:\onedrive - e-uvt.ro\informatica\programing\cpp_basics_recap\advancedcpp\multithreading\main.cpp
+	<iostream>
+	<cstdlib>
+	<pthread.h>
+
