@@ -654,5 +654,79 @@ C++ Multithreading
     
     
     
-w    
+Multithreading is a specialized form of multitasking and a multitasking is the feature that allows your computer to run two or more programs concurrently. In general, there are two types of multitasking: process-based and thread-based.
+
+	
+Process-based multitasking handles the concurrent execution of programs. Thread-based multitasking deals with the concurrent execution of pieces of the same program.
+
+	
+A multithreaded program contains two or more parts that can run concurrently. Each part of such a program is called a thread, and each thread defines a separate path of execution.
+
+	
+C++ does not contain any built-in support for multithreaded applications. Instead, it relies entirely upon the operating system to provide this feature.
+
+	
+This tutorial assumes that you are working on Linux OS and we are going to write multi-threaded C++ program using POSIX. POSIX Threads, or Pthreads provides API which are available on many Unix-like POSIX systems such as FreeBSD, NetBSD, GNU/Linux, Mac OS X and Solaris.
+
+	
+Creating Threads - The following routine is used to create a POSIX thread −
+
+	
+				#include <pthread.h>
+				pthread_create (thread, attr, start_routine, arg) 
+
+	
+Here, pthread_create creates a new thread and makes it executable. This routine can be called any number of times from anywhere within your code. Here is the description of the parameters −
+
+
+Parameter & Description
+	
+	
+thread - An opaque, unique identifier for the new thread returned by the subroutine.
+
+	
+attr - An opaque attribute object that may be used to set thread attributes. You can specify a thread attributes object, or NULL for the default values.
+
+	
+start_routine - The C++ routine that the thread will execute once it is created.
+
+	
+arg - A single argument that may be passed to start_routine. It must be passed by reference as a pointer cast of type void. NULL may be used if no argument is to be passed.
+
+	
+The maximum number of threads that may be created by a process is implementation dependent. Once created, threads are peers, and may create other threads. There is no implied hierarchy or dependency between threads.
+	
+
+Terminating Threads - The following routine terminates a POSIX thread −
+
+	
+				#include <pthread.h>
+				pthread_exit (status) 
+	
+	
+Here pthread_exit is used to explicitly exit a thread. Typically, the pthread_exit() routine is called after a thread has completed its work and is no longer required to exist.
+
+	
+If main() finishes before the threads it has created, and exits with pthread_exit(), the other threads will continue to execute. Otherwise, they will be automatically terminated when main() finishes.    
     
+
+Joining and Detaching Threads - There are two routines which we can use to join or detach threads −
+
+	
+				pthread_join (threadid, status) 
+				pthread_detach (threadid) 
+	
+	
+The pthread_join() subroutine blocks the calling thread until the specified 'threadid' thread terminates. When a thread is created, one of its attributes defines whether it is joinable or detached. Only threads that are created as joinable can be joined. If a thread is created as detached, it can never be joined.	
+	
+	
+	
+C++ Web Programming	
+	
+	
+	
+	
+	
+	
+	
+	
